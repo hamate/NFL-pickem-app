@@ -1,0 +1,36 @@
+{
+  "root": true,
+  "extends": "airbnb-base",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly",
+    "UniqueConstraintError": "readonly"
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.test.js"
+      ],
+      "env": {
+        "jest": true
+      },
+      "plugins": [
+        "jest"
+      ]
+    }
+  ],
+  "rules": {
+    "import/prefer-default-export": "off",
+    "no-return-await": "off",
+    "no-throw-literal": "off"
+  },
+  "ignorePatterns": ["migrations/*"]
+}

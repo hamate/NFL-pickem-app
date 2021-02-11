@@ -1,0 +1,58 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "NFL weekly pick'em app",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --ext .js",
+    "test": "jest --watchAll",
+    "test:ci": "jest --ci --collectCoverage --reporters=default",
+    "test:cover": "jest --collectCoverage",
+    "start": "nodemon --exec babel-node -r ./node_modules/dotenv/config src/index.js",
+    "build": "babel src -d dist",
+    "serve": "node -r dotenv/config dist/index.js",
+    "create-admin": "babel-node -r ./node_modules/dotenv/config src/createAdmin.js ",
+    "fake-db": "babel-node -r ./node_modules/dotenv/config fakedb.js"
+  },
+  "author": "Máté Hajdu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hamate/NFL-pickem-app/issues"
+  },
+  "homepage": "https://github.com/hamate/NFL-pickem-app#readme",
+  "dependencies": {
+    "babel-node": "^0.0.1-security",
+    "bcrypt": "^5.0.0",
+    "cors": "^2.8.5",
+    "dayjs": "^1.10.4",
+    "db-migrate": "^0.11.11",
+    "db-migrate-mysql": "^2.1.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "node-fetch": "^2.6.1",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/node": "^7.12.13",
+    "@babel/preset-env": "^7.9.6",
+    "@types/jest": "^25.2.1",
+    "babel-jest": "^26.0.1",
+    "eslint": "^7.0.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jest": "^23.10.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-restricted-globals": "^0.2.0",
+    "husky": "^4.3.0",
+    "jest": "^26.5.3",
+    "lint-staged": "^10.5.0",
+    "nodemon": "^2.0.2",
+    "prettier": "2.0.5",
+    "supertest": "^4.0.2"
+  }
+}
