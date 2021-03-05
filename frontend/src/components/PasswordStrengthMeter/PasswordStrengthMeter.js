@@ -24,14 +24,21 @@ function PasswordStrengthMeter({ password }) {
   };
   return (
     <div className="password-strength-meter">
-      {password && <progress className={`password-strength-meter-progress strength-${createPasswordLabel(testedResult)}`} value={testedResult.score} max="4" />}
+      {password && (
+        <progress
+          className={`password-strength-meter-progress strength-${createPasswordLabel(
+            testedResult
+          )}`}
+          value={testedResult.score}
+          max="4"
+        />
+      )}
       <br />
       <label className="password-strength-meter-label">
         {' '}
         {password && (
           <>
-            <strong>Password strength:</strong>
-            {' '}
+            <strong>Password strength:</strong>{' '}
             {createPasswordLabel(testedResult)}
           </>
         )}

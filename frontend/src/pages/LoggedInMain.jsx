@@ -11,12 +11,9 @@ function LoggedInMain() {
       <div className="main-frontpage">
         <div className="main-side main-side-panel-left"></div>
         <div className="main-container">
-          <div className="content-container">
-
-          </div>
+          <div className="content-container"></div>
         </div>
-        <div className="main-side main-side-panel-right">
-        </div>
+        <div className="main-side main-side-panel-right"></div>
       </div>
     </div>
   );

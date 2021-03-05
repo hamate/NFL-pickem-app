@@ -23,8 +23,8 @@
   color: white;
 }
 
-.headerMain, .link {
+.headerMain,
+.link {
   color: white !important;
   margin: auto 2vw;
 }
-

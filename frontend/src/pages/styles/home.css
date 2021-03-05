@@ -1,9 +1,9 @@
 html {
-  background-color: grey;
+  background-color: white;
 }
 
 .content-container {
-  background-color: grey;
+  background-color: white;
 }
 
 .main-button {
@@ -15,7 +15,7 @@ html {
   margin: auto;
   margin-top: 150px;
   padding: 10px;
-  background-color: grey;
+  background-color: white;
   -webkit-box-shadow: 11px 9px 39px 2px rgba(110, 110, 110, 1);
   -moz-box-shadow: 11px 9px 39px 2px rgba(110, 110, 110, 1);
   box-shadow: 11px 9px 39px 2px rgba(110, 110, 110, 1);

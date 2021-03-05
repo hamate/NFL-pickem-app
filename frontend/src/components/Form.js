@@ -95,7 +95,7 @@ export default function Form(props) {
       const loginResponse = await fetchDataGeneral(endpoint, method, loginData);
       window.localStorage.token = loginResponse.token;
       window.localStorage.userName = loginResponse.username;
-      dispatch(setUserAction({userName: loginResponse.username}));
+      dispatch(setUserAction({ userName: loginResponse.username }));
       setPassword('');
       setUsername('');
       history.push('/main');
@@ -117,11 +117,7 @@ export default function Form(props) {
     };
 
     try {
-      await fetchDataGeneral(
-        endpoint,
-        method,
-        registData,
-      );
+      await fetchDataGeneral(endpoint, method, registData);
       history.push({
         pathname: '/login',
       });
@@ -155,9 +151,13 @@ export default function Form(props) {
       <CssBaseline />
       <div className={classes.paper}>
         {formType === 'login' ? (
-          <h1 className="welcome-text">Welcome to the crypto-site, please sign in!</h1>
+          <h1 className="welcome-text">
+            Welcome to the crypto-site, please sign in!
+          </h1>
         ) : (
-          <h1 className="welcome-text">Welcome to the crypto-site, please sign up!</h1>
+          <h1 className="welcome-text">
+            Welcome to the crypto-site, please sign up!
+          </h1>
         )}
         <form className={classes.form} onSubmit={handleSubmit} noValidate>
           <Grid container spacing={2}>
@@ -242,11 +242,11 @@ export default function Form(props) {
           <Grid container justify="flex-end">
             <Grid item>
               <Link
-                  href={`${process.env.REACT_APP_FRONTEND}/main`}
-                  variant="body2"
-                >
-                  Continue without account
-                </Link>
+                href={`${process.env.REACT_APP_FRONTEND}/main`}
+                variant="body2"
+              >
+                Continue without account
+              </Link>
             </Grid>
           </Grid>
         </form>

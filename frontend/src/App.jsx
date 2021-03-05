@@ -14,7 +14,6 @@ import Home from './pages/Home';
 import LoggedInMain from './pages/LoggedInMain';
 import { setUserNameAction } from './actions/userActions';
 
-
 function App() {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.session.isAuthenticated);
@@ -27,7 +26,7 @@ function App() {
   };
   useEffect(() => {
     dispatch(setSessionAction());
-    dispatch(setUserNameAction())
+    dispatch(setUserNameAction());
   }, [dispatch]);
 
   function loggingOut() {

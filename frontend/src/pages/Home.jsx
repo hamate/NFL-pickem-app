@@ -53,12 +53,8 @@ function Home() {
     <Container className="main-page-container" component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <h1 className="welcome-text">
-          Welcome to the NFL pick'em site!
-        </h1>
-        <h2 className="welcome-text">
-          Please Sign In or Register!
-        </h2>
+        <h1 className="welcome-text">Welcome to the NFL pick'em site!</h1>
+        <h2 className="welcome-text">Please Sign In or Register!</h2>
         <Button
           type="submit"
           fullWidth

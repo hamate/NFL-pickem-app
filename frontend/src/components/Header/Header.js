@@ -12,7 +12,7 @@ function Header() {
 
   function loggingOut() {
     dispatch(logoutAction());
-    dispatch(setUserAction(''))
+    dispatch(setUserAction(''));
     const keysToRemove = ['token', 'userName'];
     keysToRemove.forEach((key) => {
       localStorage.removeItem(key);

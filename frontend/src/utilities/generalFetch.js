@@ -16,7 +16,10 @@ const fetchDataGeneral = async (endpoint, method, data = undefined) => {
     options.body = JSON.stringify(data);
   }
 
-  const fetchedData = await fetch(`${process.env.REACT_APP_BACKEND}${endpoint}`, options);
+  const fetchedData = await fetch(
+    `${process.env.REACT_APP_BACKEND}${endpoint}`,
+    options
+  );
 
   if (fetchedData.status === 401) {
     window.location.href = `${process.env.REACT_APP_FRONTEND}/login/`;
