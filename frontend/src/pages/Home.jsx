@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import { connect, useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
+// import { Route, Switch } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Link from '@material-ui/core/Link';
@@ -18,8 +17,10 @@ function Copyright() {
       {'Copyright © '}
       <Link color="inherit" href={`${process.env.REACT_APP_FRONTEND}/login`}>
         Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}.
+      </Link>
+      {' '}
+      {new Date().getFullYear()}
+      .
     </Typography>
   );
 }
@@ -53,7 +54,7 @@ function Home() {
     <Container className="main-page-container" component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <h1 className="welcome-text">Welcome to the NFL pick'em site!</h1>
+        <h1 className="welcome-text">Welcome to the NFL pick&apos;em site!</h1>
         <h2 className="welcome-text">Please Sign In or Register!</h2>
         <Button
           type="submit"

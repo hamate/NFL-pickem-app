@@ -19,7 +19,7 @@ import {
   loginSuccessAction,
 } from '../actions/sessionAction';
 import { setLoginError } from '../actions/errorActions';
-import { setUserAction, setUserAsyncAction } from '../actions/userActions';
+import { setUserAction } from '../actions/userActions';
 
 function Copyright() {
   return (
@@ -27,8 +27,10 @@ function Copyright() {
       {'Copyright © '}
       <Link color="inherit" href={`${process.env.REACT_APP_FRONTEND}/login`}>
         crypto-site
-      </Link>{' '}
-      {new Date().getFullYear()}.
+      </Link>
+      {' '}
+      {new Date().getFullYear()}
+      .
     </Typography>
   );
 }
@@ -152,11 +154,11 @@ export default function Form(props) {
       <div className={classes.paper}>
         {formType === 'login' ? (
           <h1 className="welcome-text">
-            Welcome to the crypto-site, please sign in!
+            Welcome to the NFL pick&apos;em site, please sign in!
           </h1>
         ) : (
           <h1 className="welcome-text">
-            Welcome to the crypto-site, please sign up!
+            Welcome to the NFL pick&apos;em site!, please sign up!
           </h1>
         )}
         <form className={classes.form} onSubmit={handleSubmit} noValidate>
@@ -260,5 +262,4 @@ export default function Form(props) {
 
 Form.propTypes = {
   formType: PropTypes.string.isRequired,
-  loginError: PropTypes.string.isRequired,
 };

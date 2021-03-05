@@ -32,8 +32,7 @@
     "react/no-array-index-key": "off",
     "jsx-a11y/click-events-have-key-events": "off",
     "jsx-a11y/no-nointeractive-element-interactions": "off",
-    "react/prop-types": "warn", //todo: remove next week
-    "prettier/prettier": "warn"
+    "react/prop-types": "warn"
   },
   "ignorePatterns": "src/serviceWorker.js"
 }

@@ -18,7 +18,7 @@ const fetchDataGeneral = async (endpoint, method, data = undefined) => {
 
   const fetchedData = await fetch(
     `${process.env.REACT_APP_BACKEND}${endpoint}`,
-    options
+    options,
   );
 
   if (fetchedData.status === 401) {

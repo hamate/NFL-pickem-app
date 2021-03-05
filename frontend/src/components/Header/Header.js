@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import './Header.css';
 import { logoutAction } from '../../actions/sessionAction';
 import { setUserAction } from '../../actions/userActions';
@@ -37,7 +36,8 @@ function Header() {
   return (
     <div className="header" key="header">
       <Link className="headerMain" to="/main" style={linkStyle}>
-        Hello {userName}
+        Hello &nbsp;
+        {userName}
       </Link>
       <div>
         {currentStatus.map((item) => (
@@ -59,10 +59,5 @@ function Header() {
     </div>
   );
 }
-
-Header.propTypes = {
-  loggingOut: PropTypes.func,
-  isLoggedIn: PropTypes.bool,
-};
 
 export default Header;

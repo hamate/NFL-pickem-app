@@ -17,6 +17,7 @@ import { setUserNameAction } from './actions/userActions';
 function App() {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.session.isAuthenticated);
+  console.log(isAuthenticated);
   const tokenExists = () => {
     const token = localStorage.getItem('token');
     if (token) {
