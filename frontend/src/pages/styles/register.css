@@ -1,0 +1,18 @@
+.welcome-text {
+  color: green;
+}
+
+.register-container {
+  width: fit-content;
+  margin: auto;
+  margin-top: 150px;
+  padding: 10px;
+  background-color: white;
+  -webkit-box-shadow: 11px 9px 39px 2px rgba(56, 56, 56, 1);
+  -moz-box-shadow: 11px 9px 39px 2px rgba(56, 56, 56, 1);
+  box-shadow: 11px 9px 39px 2px rgba(56, 56, 56, 1);
+}
+
+.MuiInputLabel-outlined.MuiInputLabel-shrink {
+  transform: translate(14px, -2px) scale(0.75) !important;
+}

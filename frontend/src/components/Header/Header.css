@@ -1,0 +1,30 @@
+* {
+  margin: 0px;
+}
+
+.header {
+  height: 60px;
+  background: #2a2a2a;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  column-gap: 20px;
+}
+
+.headerMain {
+  position: static;
+  left: 10px;
+  font-size: calc(12px + 2vmin);
+  color: white;
+}
+
+.headerMain, .link {
+  color: white !important;
+  margin: auto 2vw;
+}
+
