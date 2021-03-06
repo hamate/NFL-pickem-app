@@ -158,7 +158,7 @@ export default function Form(props) {
           </h1>
         ) : (
           <h1 className="welcome-text">
-            Welcome to the NFL pick&apos;em site!, please sign up!
+            Welcome to the NFL pick&apos;em site, please sign up!
           </h1>
         )}
         <form className={classes.form} onSubmit={handleSubmit} noValidate>
