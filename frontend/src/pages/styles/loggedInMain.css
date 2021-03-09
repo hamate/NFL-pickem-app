@@ -4,18 +4,28 @@ body {
 }
 
 .main-frontpage {
-  display: grid;
-  grid-template-columns: 15% 60% 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.main-side {
-  height: 800px;
-  padding: 40px 10px;
-  background-color: white;
-  height: 100%;
-  min-height: 800px;
+header {
+  font-size: 3em;
+  margin-bottom: 5vh;
 }
 
-.news-card {
-  margin: 10px 0;
+.event-container {
+  display: flex;
+  align-items: center;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  margin: 10vw;
+}
+
+.team-logo {
+  max-height: 10vh;
 }

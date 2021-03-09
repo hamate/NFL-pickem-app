@@ -2,6 +2,7 @@ import generalDataFetch from '../utilities/generalDataFetch';
 
 export const eventsServices = {
   async getRoundEvents(roundNum) {
+    // have to enable below in produciton
     // const year = new Date().getFullYear().toString();
     const year = '2020';
     const URL = `https://www.thesportsdb.com/api/v1/json/1/eventsround.php?id=4391&r=${roundNum}&s=${year}`;
