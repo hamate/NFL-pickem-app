@@ -38,15 +38,15 @@ function Picker() {
       <div className="events-main-container">
         {roundEvents.length > 0
           ? roundEvents.map((event) => (
-            <div className="event-container" key={event.idEvent}>
-              <div className="team away-team">
-                <img className="team-logo away-team-logo" src={`../../../assets/images/teamLogos/${event.strAwayTeam.split(' ').join('_')}_Logos.gif`} alt="logo" />
-                <span className="team-name away-team-name">{event.strAwayTeam}</span>
+            <div className="picker-event-container" key={event.idEvent}>
+              <div className="picker-team picker-away-team">
+                <img className="picker-team-logo picker-away-team-logo" src={`../../../assets/images/teamLogos/${event.strAwayTeam.split(' ').join('_')}_Logos.gif`} alt="logo" />
+                <span className="picker-team-name picker-away-team-name">{event.strAwayTeam}</span>
               </div>
               @
-              <div className="team home-team">
-                <img className="team-logo home-team-logo" src={`../../../assets/images/teamLogos/${event.strHomeTeam.split(' ').join('_')}_Logos.gif`} alt="logo" />
-                <span className="team-name home-team-name">{event.strHomeTeam}</span>
+              <div className="picker-team picker-home-team">
+                <img className="picker-team-logo picker-home-team-logo" src={`../../../assets/images/teamLogos/${event.strHomeTeam.split(' ').join('_')}_Logos.gif`} alt="logo" />
+                <span className="picker-team-name picker-home-team-name">{event.strHomeTeam}</span>
               </div>
             </div>
           ))

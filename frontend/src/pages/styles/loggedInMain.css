@@ -15,17 +15,17 @@ header {
   margin-bottom: 5vh;
 }
 
-.event-container {
+.picker-event-container {
   display: flex;
   align-items: center;
 }
 
-.team {
+.picker-team {
   display: flex;
   flex-direction: column;
   margin: 10vw;
 }
 
-.team-logo {
+.picker-team-logo {
   max-height: 10vh;
 }
