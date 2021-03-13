@@ -18,14 +18,38 @@ header {
 .picker-event-container {
   display: flex;
   align-items: center;
+  justify-content: space-around;
+  background: #ffffff;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+  border-radius: 21px;
+  margin: 5vh;
+  height: 20vh;
+  width: 85vw;
 }
 
 .picker-team {
   display: flex;
   flex-direction: column;
-  margin: 10vw;
+  max-width: 27vw;
+  margin: auto 2vw;
+  margin-top: 2vh;
+}
+
+.picker-home-team:hover ~ .picker-away-team {
+  opacity: 20%;
+}
+
+.picker-away-team:hover ~ .picker-home-team {
+  opacity: 20%;
 }
 
 .picker-team-logo {
   max-height: 10vh;
+  max-width: 30vw;
+  object-fit: scale-down;
+}
+
+.picker-team-name {
+  max-height: 10vh;
+  max-width: 30vw;
 }
