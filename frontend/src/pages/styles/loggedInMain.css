@@ -35,15 +35,7 @@ header {
   margin-top: 2vh;
 }
 
-.picker-home-team:hover ~ .picker-away-team {
-  opacity: 20%;
-}
-
-.picker-away-team:hover ~ .picker-home-team {
-  opacity: 20%;
-}
-
-.picker-team-logo {
+.picker-team-logo{
   max-height: 10vh;
   max-width: 30vw;
   object-fit: scale-down;
@@ -52,4 +44,35 @@ header {
 .picker-team-name {
   max-height: 10vh;
   max-width: 30vw;
+}
+
+.picker-team input{
+  margin:0;padding:0;
+  -webkit-appearance:none;
+     -moz-appearance:none;
+          appearance:none;
+}
+
+.picker-team input:active +.team-label{opacity: .9;}
+.picker-team input:checked +.team-label{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+.team-label{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+       -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+            filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+.team-label:hover{
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            filter: brightness(1.2) grayscale(.5) opacity(.9);
 }

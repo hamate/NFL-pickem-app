@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import generalDataFetch from '../../utilities/generalFetch';
+import SportEvents from './SportEvents';
 
 function Picker() {
   const [selectedRound, setSelectedRound] = useState(1);
@@ -8,7 +9,9 @@ function Picker() {
   const rounds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
 
   useEffect(async () => {
-    const fetchedEvents = await generalDataFetch(`/roundEvents/${selectedRound}`);
+    const fetchedEvents = await generalDataFetch(
+      `/roundEvents/${selectedRound}`,
+    );
     setRoundEvents(fetchedEvents);
   }, [selectedRound]);
 
@@ -37,19 +40,8 @@ function Picker() {
       </label>
       <div className="events-main-container">
         {roundEvents.length > 0
-          ? roundEvents.map((event) => (
-            <div className="picker-event-container" key={event.idEvent}>
-              <div className="picker-team picker-away-team">
-                <img className="picker-team-logo picker-away-team-logo" src={`../../../assets/images/teamLogos/${event.strAwayTeam.split(' ').join('_')}_Logos.gif`} alt="logo" />
-                <span className="picker-team-name picker-away-team-name">{event.strAwayTeam}</span>
-              </div>
-              @
-              <div className="picker-team picker-home-team">
-                <img className="picker-team-logo picker-home-team-logo" src={`../../../assets/images/teamLogos/${event.strHomeTeam.split(' ').join('_')}_Logos.gif`} alt="logo" />
-                <span className="picker-team-name picker-home-team-name">{event.strHomeTeam}</span>
-              </div>
-            </div>
-          ))
+          ? roundEvents.map((sportEvent) => (
+            <SportEvents eventData={sportEvent} key={sportEvent.idEvent} />))
           : 'Loading'}
       </div>
     </div>
