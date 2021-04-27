@@ -32,7 +32,14 @@
     "react/no-array-index-key": "off",
     "jsx-a11y/click-events-have-key-events": "off",
     "jsx-a11y/no-nointeractive-element-interactions": "off",
-    "react/prop-types": "warn"
+    "react/prop-types": "warn",
+    "react/destructuring-assignment": [
+      "warn",
+      "never",
+      {
+        "ignoreClassFields": true
+      }
+    ]
   },
   "ignorePatterns": "src/serviceWorker.js"
 }

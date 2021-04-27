@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
 body {
   background-color: white;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Fjalla One', sans-serif;
 }
 
 .main-frontpage {
@@ -11,6 +13,7 @@ body {
 }
 
 header {
+  margin: 1em auto;
   font-size: 3em;
   margin-bottom: 5vh;
 }
@@ -35,7 +38,7 @@ header {
   margin-top: 2vh;
 }
 
-.picker-team-logo{
+.picker-team-logo {
   max-height: 10vh;
   max-width: 30vw;
   object-fit: scale-down;
@@ -46,33 +49,50 @@ header {
   max-width: 30vw;
 }
 
-.picker-team input{
-  margin:0;padding:0;
-  -webkit-appearance:none;
-     -moz-appearance:none;
-          appearance:none;
+.picker-team input {
+  margin: 0;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
-.picker-team input:active +.team-label{opacity: .9;}
-.picker-team input:checked +.team-label{
-    -webkit-filter: none;
-       -moz-filter: none;
-            filter: none;
+.picker-team input:active + .team-label {
+  opacity: 0.9;
 }
-.team-label{
-    cursor:pointer;
-    background-size:contain;
-    background-repeat:no-repeat;
-    display:inline-block;
-    -webkit-transition: all 100ms ease-in;
-       -moz-transition: all 100ms ease-in;
-            transition: all 100ms ease-in;
-    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
-       -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
-            filter: brightness(1.8) grayscale(1) opacity(.7);
+.picker-team input:checked + .team-label {
+  -webkit-filter: none;
+  -moz-filter: none;
+  filter: none;
 }
-.team-label:hover{
-    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
-       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
-            filter: brightness(1.2) grayscale(.5) opacity(.9);
+.team-label {
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  -webkit-transition: all 100ms ease-in;
+  -moz-transition: all 100ms ease-in;
+  transition: all 100ms ease-in;
+  -webkit-filter: brightness(1.8) grayscale(1) opacity(0.7);
+  -moz-filter: brightness(1.8) grayscale(1) opacity(0.7);
+  filter: brightness(1.8) grayscale(1) opacity(0.7);
+}
+.team-label:hover {
+  -webkit-filter: brightness(1.2) grayscale(0.5) opacity(0.9);
+  -moz-filter: brightness(1.2) grayscale(0.5) opacity(0.9);
+  filter: brightness(1.2) grayscale(0.5) opacity(0.9);
+}
+
+.league-btn {
+  width: 65vw;
+  height: 6vh;
+  margin: 1vh;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+  border-radius: 21px;
+  text-decoration: none;
+  line-height: 6vh;
+  color: black;
+  font-size: 1.3em;
 }

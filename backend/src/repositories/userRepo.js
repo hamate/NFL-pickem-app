@@ -14,12 +14,12 @@ export const userRepo = {
     const sqlQueryInsert = 'INSERT INTO users(username, password, email) VALUES(?,?,?);';
     try {
       return await db.query(sqlQueryInsert, [username, password, email]);
-    } catch (error) {
-      throw { status: 500, message: error.sqlMessage };
+    } catch (err) {
+      throw { status: 500, message: err.sqlMessage };
     }
   },
   async getUser(username) {
-    const sql = `SELECT userid, password FROM users
+    const sql = `SELECT id, password FROM users
       WHERE username = ?;`;
     try {
       return await db.query(sql, username);

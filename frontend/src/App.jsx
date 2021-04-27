@@ -12,7 +12,10 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import LoggedInMain from './pages/LoggedInMain';
+import CreateLeague from './pages/CreateLeague';
+import JoinLeague from './pages/JoinLeague';
 import { setUserNameAction } from './actions/userActions';
+import Header from './components/Header/Header';
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +40,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        {window.location.pathname !== '/register' && window.location.pathname !== '/login' ? <Header /> : null}
         <Switch>
           <Route exact path="/">
             {tokenExists() ? (
@@ -49,6 +53,8 @@ function App() {
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/main" component={LoggedInMain} />
+          <Route exact path="/createLeague" component={CreateLeague} />
+          <Route exact path="/joinLeague" component={JoinLeague} />
         </Switch>
       </div>
     </Router>
