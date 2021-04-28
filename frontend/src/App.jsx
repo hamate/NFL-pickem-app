@@ -16,6 +16,7 @@ import CreateLeague from './pages/CreateLeague';
 import JoinLeague from './pages/JoinLeague';
 import { setUserNameAction } from './actions/userActions';
 import Header from './components/Header/Header';
+import Picker from './components/Picker/Picker';
 
 function App() {
   const dispatch = useDispatch();
@@ -55,6 +56,7 @@ function App() {
           <Route exact path="/main" component={LoggedInMain} />
           <Route exact path="/createLeague" component={CreateLeague} />
           <Route exact path="/joinLeague" component={JoinLeague} />
+          <Route exact path="/makePicks" component={Picker} />
         </Switch>
       </div>
     </Router>

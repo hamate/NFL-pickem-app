@@ -1,13 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Picker from '../components/Picker/Picker';
-import './styles/loggedInMain.css';
+import './styles/main.css';
 
 function LoggedInMain() {
+  const [userLeagues, setUserLeagues] = useState('');
   useEffect(() => {
-
+    setUserLeagues(['NFL first league', 'NBA playoffer', 'this is my lg', 'never back down']);
   }, []);
+
+  function userHasLeagues(lg) {
+    return (
+      <div>
+        <div className="user-leagues-list" key={lg}>{lg}</div>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -17,10 +25,16 @@ function LoggedInMain() {
           <div className="content-container"></div>
         </div>
         <div className="main-side main-side-panel-right"></div> */}
-        <header>Your leagues</header>
-        <Link to="/createLeague" className="league-btn">Create league</Link>
-        <Link to="/joinLeague" className="league-btn">Join league</Link>
-        <Picker />
+        <Link to="/createLeague" className="league-btn create-league-btn">Create league</Link>
+        <Link to="/joinLeague" className="league-btn join-league-btn">Join league</Link>
+        {userLeagues.length > 0
+          ? (
+            <div>
+              <header>Your leagues</header>
+              {userLeagues.map((lg) => userHasLeagues(lg))}
+            </div>
+          )
+          : 'You haven\'t joined any league yet.'}
       </div>
     </div>
   );

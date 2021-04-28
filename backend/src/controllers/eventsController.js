@@ -10,4 +10,12 @@ export const eventsController = {
       next(error);
     }
   },
+  async getAllLeagues(req, res, next) {
+    try {
+      const leaguesData = await eventsServices.getAllLeagues();
+      res.status(200).json(leaguesData);
+    } catch (error) {
+      next(error);
+    }
+  },
 };

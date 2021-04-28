@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
@@ -7,7 +7,11 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
 import fetchDataGeneral from '../utilities/generalFetch';
+import './styles/main.css';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -24,6 +28,9 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
 }));
 
 export default function CreateLeague() {
@@ -31,9 +38,16 @@ export default function CreateLeague() {
   const [leagueName, setLeagueName] = useState('');
   const [sportId, setSportId] = useState('');
   const [maxUsers, setMaxUsers] = useState('');
+  const [availableSports, setAvailableSports] = useState([]);
   const history = useHistory();
   // const dispatch = useDispatch();
   const userId = useSelector((state) => state.userid);
+
+  useEffect(async () => {
+    const allLeaguesData = await fetchDataGeneral('/allLeagues');
+    setAvailableSports(allLeaguesData);
+  }, []);
+  console.log(availableSports);
 
   const onLeagueNameChange = (e) => {
     setLeagueName(e.target.value);
@@ -83,16 +97,16 @@ export default function CreateLeague() {
               />
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="sport"
-                label="Sport"
-                type="sport"
-                id="sport"
+              <InputLabel id="league-select-label">Sport</InputLabel>
+              <Select
+                labelId="league-select-label"
+                id="league-select"
+                value={sportId}
                 onChange={onSportIdChange}
-              />
+              >
+                {availableSports
+                  .map((sport) => <MenuItem value={sport.idLeague}>{sport.strLeague}</MenuItem>)}
+              </Select>
             </Grid>
             <Grid item xs={12}>
               <TextField

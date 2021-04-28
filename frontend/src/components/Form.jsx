@@ -241,16 +241,6 @@ export default function Form(props) {
               )}
             </Grid>
           </Grid>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link
-                href={`${process.env.REACT_APP_FRONTEND}/main`}
-                variant="body2"
-              >
-                Continue without account
-              </Link>
-            </Grid>
-          </Grid>
         </form>
       </div>
       <Box mt={5}>

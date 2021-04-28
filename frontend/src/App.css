@@ -1,3 +1,8 @@
+html, body {
+  background-color: white;
+  font-family: 'Fjalla One', sans-serif;
+}
+
 .App {
   text-align: center;
   background-color: white;

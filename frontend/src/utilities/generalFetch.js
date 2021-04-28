@@ -30,7 +30,6 @@ const fetchDataGeneral = async (endpoint, method, data = undefined) => {
   if (fetchedData.status !== 200) {
     throw new Error(jsonData.message);
   }
-
   return jsonData;
 };
 

@@ -23,4 +23,17 @@ export const eventsServices = {
 
     return eventsResult;
   },
+  async getAllLeagues() {
+    console.log('service1');
+    const URL = 'https://www.thesportsdb.com/api/v1/json/1/all_leagues.php';
+    const leaguesFetch = await generalDataFetch(URL);
+    const result = await leaguesFetch.jsonData.leagues;
+    const leaguesResult = result.map((lg) => ({
+      idLeague: lg.idLeague,
+      strLeague: lg.strLeague,
+      strSport: lg.strSport,
+    }));
+    console.log('service2');
+    return leaguesResult;
+  },
 };
