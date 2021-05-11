@@ -33,6 +33,7 @@
     "jsx-a11y/click-events-have-key-events": "off",
     "jsx-a11y/no-nointeractive-element-interactions": "off",
     "react/prop-types": "warn",
+    "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
     "react/destructuring-assignment": [
       "warn",
       "never",

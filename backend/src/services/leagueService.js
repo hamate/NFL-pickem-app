@@ -1,4 +1,4 @@
-import { leagueRepo } from '../repositories';
+import { leaguesRepo } from '../repositories';
 
 export const leagueService = {
   validateLeagueData(leagueName, sportId, maxUsers) {
@@ -31,7 +31,7 @@ export const leagueService = {
 
   async addLeague(leagueName, sportId, userId, maxUsers) {
     try {
-      return await leagueRepo.addLeague(leagueName, sportId, userId, maxUsers);
+      return await leaguesRepo.addLeague(leagueName, sportId, userId, maxUsers);
     } catch (err) {
       throw { status: 401, message: err.message };
     }
@@ -39,7 +39,7 @@ export const leagueService = {
 
   async updateLeague(leagueId, leagueName, maxUsers) {
     try {
-      return await leagueRepo.updateLeague(leagueId, leagueName, maxUsers);
+      return await leaguesRepo.updateLeague(leagueId, leagueName, maxUsers);
     } catch (err) {
       throw { status: 401, message: err.message };
     }

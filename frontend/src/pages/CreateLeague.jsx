@@ -45,7 +45,11 @@ export default function CreateLeague() {
 
   useEffect(async () => {
     const allLeaguesData = await fetchDataGeneral('/allLeagues');
-    setAvailableSports(allLeaguesData);
+    // to control available sports
+    const filteredLeagues = allLeaguesData.filter(
+      (lg) => lg.strLeague === 'NFL' || lg.strLeague === 'NBA',
+    );
+    setAvailableSports(filteredLeagues);
   }, []);
   console.log(availableSports);
 
@@ -63,7 +67,7 @@ export default function CreateLeague() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const endpoint = '/createLeague';
+    const endpoint = '/addLeague';
     const method = 'POST';
     const leagueData = {
       userId,
@@ -71,9 +75,10 @@ export default function CreateLeague() {
       sportId,
       maxUsers,
     };
+    console.log(leagueData);
     await fetchDataGeneral(endpoint, method, leagueData);
     history.push({
-      pathname: '/login',
+      pathname: '/main',
     });
   };
 
@@ -104,8 +109,11 @@ export default function CreateLeague() {
                 value={sportId}
                 onChange={onSportIdChange}
               >
-                {availableSports
-                  .map((sport) => <MenuItem value={sport.idLeague}>{sport.strLeague}</MenuItem>)}
+                {availableSports.map((sport) => (
+                  <MenuItem key={sport.idLeague} value={sport.idLeague}>
+                    {sport.strLeague}
+                  </MenuItem>
+                ))}
               </Select>
             </Grid>
             <Grid item xs={12}>

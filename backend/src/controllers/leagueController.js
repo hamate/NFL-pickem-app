@@ -16,7 +16,8 @@ export const leagueController = {
       sportId,
       userId,
       maxUsers,
-    } = req.params;
+    } = req.body;
+    console.log(req.body);
     try {
       const addLeagueData = await leagueService.addLeague(
         leagueName,

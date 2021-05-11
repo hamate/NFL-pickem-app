@@ -11,7 +11,7 @@ export const leaguesRepo = {
   },
 
   async addLeague(leagueName, sportId, userId, maxUsers) {
-    const sqlQueryInsert = 'INSERT INTO leagues(league_name, sport_id, user_id, max_users) VALUES(?,?,?,?);';
+    const sqlQueryInsert = 'INSERT INTO leagues(league_name, sport_id, owner_id, max_users) VALUES(?,?,?,?);';
     try {
       return await db.query(sqlQueryInsert, [leagueName, sportId, userId, maxUsers]);
     } catch (error) {
