@@ -13,5 +13,6 @@ export const setUserAsyncAction = () => async (dispatch) => {
 
 export const setUserNameAction = () => {
   const userName = localStorage.getItem('userName');
-  return setUserAction({ userName });
+  const userId = localStorage.getItem('userId');
+  return setUserAction({ userName, userId });
 };

@@ -11,20 +11,10 @@ export const leagueController = {
     }
   },
   async addLeague(req, res, next) {
-    const {
-      leagueName,
-      sportId,
-      userId,
-      maxUsers,
-    } = req.body;
+    const leagueData = req.body;
     console.log(req.body);
     try {
-      const addLeagueData = await leagueService.addLeague(
-        leagueName,
-        sportId,
-        userId,
-        maxUsers,
-      );
+      const addLeagueData = await leagueService.addLeague(leagueData);
       res.status(200).json(addLeagueData);
     } catch (error) {
       next(error);

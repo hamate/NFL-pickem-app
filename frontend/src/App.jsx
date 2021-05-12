@@ -21,11 +21,10 @@ import Picker from './components/Picker/Picker';
 function App() {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.session.isAuthenticated);
-  console.log(isAuthenticated);
+
   const tokenExists = () => {
     const token = localStorage.getItem('token');
     if (token) {
-      console.log('token');
       return true;
     }
     return false;

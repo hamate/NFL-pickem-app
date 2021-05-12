@@ -10,10 +10,16 @@ export const leaguesRepo = {
     }
   },
 
-  async addLeague(leagueName, sportId, userId, maxUsers) {
-    const sqlQueryInsert = 'INSERT INTO leagues(league_name, sport_id, owner_id, max_users) VALUES(?,?,?,?);';
+  async addLeague(leagueName, sportId, userId, maxUsers, hashedPassword) {
+    const sqlQueryInsert = 'INSERT INTO leagues(league_name, sport_id, owner_id, max_users, password) VALUES(?,?,?,?,?);';
     try {
-      return await db.query(sqlQueryInsert, [leagueName, sportId, userId, maxUsers]);
+      return await db.query(sqlQueryInsert, [
+        leagueName,
+        sportId,
+        userId,
+        maxUsers,
+        hashedPassword,
+      ]);
     } catch (error) {
       throw { status: 500, message: error.sqlMessage };
     }

@@ -27,6 +27,6 @@ export const loginService = {
     const token = jwt.sign({
       id: userData.results[0].id,
     }, config.secret || 'somesecret');
-    return token;
+    return [token, userData.results[0].id];
   },
 };

@@ -39,9 +39,10 @@ export default function CreateLeague() {
   const [sportId, setSportId] = useState('');
   const [maxUsers, setMaxUsers] = useState('');
   const [availableSports, setAvailableSports] = useState([]);
+  const [password, setPassword] = useState('');
   const history = useHistory();
   // const dispatch = useDispatch();
-  const userId = useSelector((state) => state.userid);
+  const userId = useSelector((state) => state.user.userid);
 
   useEffect(async () => {
     const allLeaguesData = await fetchDataGeneral('/allLeagues');
@@ -51,18 +52,26 @@ export default function CreateLeague() {
     );
     setAvailableSports(filteredLeagues);
   }, []);
-  console.log(availableSports);
+  console.log(userId);
 
   const onLeagueNameChange = (e) => {
+    e.preventDefault();
     setLeagueName(e.target.value);
   };
 
   const onSportIdChange = (e) => {
+    e.preventDefault();
     setSportId(e.target.value);
   };
 
   const onMaxUsersChange = (e) => {
+    e.preventDefault();
     setMaxUsers(e.target.value);
+  };
+
+  const onPasswordChange = (e) => {
+    e.preventDefault();
+    setPassword(e.target.value);
   };
 
   const handleSubmit = async (e) => {
@@ -74,6 +83,7 @@ export default function CreateLeague() {
       leagueName,
       sportId,
       maxUsers,
+      password,
     };
     console.log(leagueData);
     await fetchDataGeneral(endpoint, method, leagueData);
@@ -126,6 +136,19 @@ export default function CreateLeague() {
                 type="maxUsers"
                 id="maxUsers"
                 onChange={onMaxUsersChange}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+                onChange={onPasswordChange}
               />
             </Grid>
           </Grid>

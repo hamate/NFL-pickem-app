@@ -9,6 +9,7 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         username: action.payload.userName,
+        userid: action.payload.userId,
       };
     default:
       return state;

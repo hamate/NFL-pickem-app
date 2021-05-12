@@ -95,9 +95,11 @@ export default function Form(props) {
 
     try {
       const loginResponse = await fetchDataGeneral(endpoint, method, loginData);
+      console.log(loginResponse);
       window.localStorage.token = loginResponse.token;
       window.localStorage.userName = loginResponse.username;
-      dispatch(setUserAction({ userName: loginResponse.username }));
+      window.localStorage.userId = loginResponse.userid;
+      dispatch(setUserAction({ userName: loginResponse.username, userId: loginResponse.userid }));
       setPassword('');
       setUsername('');
       history.push('/main');

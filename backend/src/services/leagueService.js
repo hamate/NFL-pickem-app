@@ -1,3 +1,4 @@
+import bcrypt from 'bcrypt';
 import { leaguesRepo } from '../repositories';
 
 export const leagueService = {
@@ -29,11 +30,20 @@ export const leagueService = {
     return undefined;
   },
 
-  async addLeague(leagueName, sportId, userId, maxUsers) {
+  async addLeague(leagueData) {
+    const {
+      leagueName,
+      sportId,
+      userId,
+      maxUsers,
+      password,
+    } = leagueData;
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
     try {
-      return await leaguesRepo.addLeague(leagueName, sportId, userId, maxUsers);
+      return await leaguesRepo.addLeague(leagueName, sportId, userId, maxUsers, hashedPassword);
     } catch (err) {
-      throw { status: 401, message: err.message };
+      throw { status: 500, message: err.message };
     }
   },
 
@@ -41,7 +51,7 @@ export const leagueService = {
     try {
       return await leaguesRepo.updateLeague(leagueId, leagueName, maxUsers);
     } catch (err) {
-      throw { status: 401, message: err.message };
+      throw { status: 500, message: err.message };
     }
   },
 };
