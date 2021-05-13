@@ -56,7 +56,7 @@ function App() {
           <Route exact path="/main" component={LoggedInMain} />
           <Route exact path="/createLeague" component={CreateLeague} />
           <Route exact path="/joinLeague" component={JoinLeague} />
-          <Route exact path="/makePicks" component={Picker} />
+          <Route exact path="/picker" component={Picker} />
         </Switch>
       </div>
     </Router>

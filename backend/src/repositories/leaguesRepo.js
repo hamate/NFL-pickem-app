@@ -42,7 +42,7 @@ export const leaguesRepo = {
 
   async getUserLeagues(userId) {
     try {
-      const sql = 'SELECT league_name FROM leagues WHERE id IN (SELECT league_id FROM leagueUsers WHERE user_id = ?);';
+      const sql = 'SELECT id, league_name FROM leagues WHERE id IN (SELECT league_id FROM leagueUsers WHERE user_id = ?);';
       const getLeagueNames = await db.query(sql, [userId]);
       console.log(getLeagueNames);
       return getLeagueNames;

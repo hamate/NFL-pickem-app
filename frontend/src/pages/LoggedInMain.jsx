@@ -9,13 +9,13 @@ function LoggedInMain() {
   const userId = useSelector((state) => state.user.userid);
   useEffect(async () => {
     const userLeaguesData = await fetchDataGeneral(`/userLeagues/${userId}`);
-    setUserLeagues(userLeaguesData);
+    const leagueNames = userLeaguesData.map((lg) => lg.league_name);
+    setUserLeagues(leagueNames);
   }, []);
-  console.log(userLeagues);
   function userHasLeagues(lg) {
     return (
       <div key={lg}>
-        <div className="user-leagues-list">{lg}</div>
+        <Link to={{ pathname: '/picker', leagueName: lg }} className="user-leagues-list">{lg}</Link>
       </div>
     );
   }

@@ -5,8 +5,7 @@ export const leagueController = {
     const { userId } = req.params;
     try {
       const userLeaguesData = await leagueService.getUserLeagues(userId);
-      const leaguesData = userLeaguesData.results.map((lg) => lg.league_name);
-      res.status(200).json(leaguesData);
+      res.status(200).json(userLeaguesData.results);
     } catch (error) {
       next(error);
     }

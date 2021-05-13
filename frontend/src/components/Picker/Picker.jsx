@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import generalDataFetch from '../../utilities/generalFetch';
 import SportEvents from './SportEvents';
 
-function Picker() {
+function Picker(props) {
+  // eslint-disable-next-line react/destructuring-assignment
+  const { leagueName } = props.location;
   const [selectedRound, setSelectedRound] = useState(1);
   const [roundEvents, setRoundEvents] = useState([]);
+  const userId = useSelector((state) => state.user.userid);
 
   const rounds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
 
@@ -22,6 +26,10 @@ function Picker() {
 
   return (
     <div className="picker-main-container">
+      <h2 className="selected-league-header">
+        Selected league:&nbsp;
+        {leagueName}
+      </h2>
       <header>Make your picks</header>
       <label htmlFor="round-selector">
         Selected round:&nbsp;

@@ -16,6 +16,7 @@ function SportEvents(params) {
 
     // team.setAttribute('style', 'opacity: 100%;');
   }
+  console.log(selected);
 
   return (
     <div>
