@@ -1,21 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { setLeagueAction } from '../actions/leagueActions';
 import fetchDataGeneral from '../utilities/generalFetch';
 import './styles/main.css';
 
 function LoggedInMain() {
   const [userLeagues, setUserLeagues] = useState([]);
   const userId = useSelector((state) => state.user.userid);
+  const dispatch = useDispatch();
+
   useEffect(async () => {
     const userLeaguesData = await fetchDataGeneral(`/userLeagues/${userId}`);
     const leagueNames = userLeaguesData.map((lg) => lg.league_name);
     setUserLeagues(leagueNames);
   }, []);
+
   function userHasLeagues(lg) {
     return (
       <div key={lg}>
-        <Link to={{ pathname: '/picker', leagueName: lg }} className="user-leagues-list">{lg}</Link>
+        <Link onClick={() => dispatch(setLeagueAction(lg))} to={{ pathname: '/picker', leagueName: lg }} className="user-leagues-list">{lg}</Link>
       </div>
     );
   }
