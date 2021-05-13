@@ -54,4 +54,12 @@ export const leagueService = {
       throw { status: 500, message: err.message };
     }
   },
+
+  async getUserLeagues(userId) {
+    try {
+      return await leaguesRepo.getUserLeagues(userId);
+    } catch (err) {
+      throw { status: 500, message: err.message };
+    }
+  },
 };

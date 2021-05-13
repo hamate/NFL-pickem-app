@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import fetchDataGeneral from '../utilities/generalFetch';
 import './styles/main.css';
 
 function LoggedInMain() {
-  const [userLeagues, setUserLeagues] = useState('');
-  useEffect(() => {
-    setUserLeagues(['NFL first league', 'NBA playoffer', 'this is my lg', 'never back down']);
+  const [userLeagues, setUserLeagues] = useState([]);
+  const userId = useSelector((state) => state.user.userid);
+  useEffect(async () => {
+    const userLeaguesData = await fetchDataGeneral(`/userLeagues/${userId}`);
+    setUserLeagues(userLeaguesData);
   }, []);
-
+  console.log(userLeagues);
   function userHasLeagues(lg) {
     return (
-      <div>
-        <div className="user-leagues-list" key={lg}>{lg}</div>
+      <div key={lg}>
+        <div className="user-leagues-list">{lg}</div>
       </div>
     );
   }

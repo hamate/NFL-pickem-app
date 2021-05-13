@@ -11,15 +11,20 @@ export const leaguesRepo = {
   },
 
   async addLeague(leagueName, sportId, userId, maxUsers, hashedPassword) {
-    const sqlQueryInsert = 'INSERT INTO leagues(league_name, sport_id, owner_id, max_users, password) VALUES(?,?,?,?,?);';
+    const sqlQueryInsert =
+      'INSERT INTO leagues(league_name, sport_id, owner_id, max_users, password) VALUES(?,?,?,?,?);';
     try {
-      return await db.query(sqlQueryInsert, [
+      const addLeagueSql = await db.query(sqlQueryInsert, [
         leagueName,
         sportId,
         userId,
         maxUsers,
         hashedPassword,
       ]);
+      const sqlAddLeagueUser =
+        'INSERT INTO leagueUsers(user_id, league_id) VALUES(?,?);';
+      await db.query(sqlAddLeagueUser, [userId, addLeagueSql.results.insertId]);
+      return addLeagueSql;
     } catch (error) {
       throw { status: 500, message: error.sqlMessage };
     }
@@ -30,6 +35,17 @@ export const leaguesRepo = {
       WHERE id = ?;`;
     try {
       return await db.query(sql, [leagueName, maxUsers, leagueId]);
+    } catch (err) {
+      throw { status: 500, message: err.sqlMessage };
+    }
+  },
+
+  async getUserLeagues(userId) {
+    try {
+      const sql = 'SELECT league_name FROM leagues WHERE id IN (SELECT league_id FROM leagueUsers WHERE user_id = ?);';
+      const getLeagueNames = await db.query(sql, [userId]);
+      console.log(getLeagueNames);
+      return getLeagueNames;
     } catch (err) {
       throw { status: 500, message: err.sqlMessage };
     }

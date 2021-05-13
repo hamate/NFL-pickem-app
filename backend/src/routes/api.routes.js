@@ -22,6 +22,7 @@ router.use(authHandler);
 router.get('/roundEvents/:roundNum', eventsController.getRoundEvents);
 router.get('/allLeagues', eventsController.getAllLeagues);
 router.post('/addLeague', leagueController.addLeague);
-router.post('/updateLeague/', leagueController.updateLeague);
+router.post('/updateLeague', leagueController.updateLeague);
+router.get('/userLeagues/:userId', leagueController.getUserLeagues);
 
 export default router;
